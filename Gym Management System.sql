@@ -10,10 +10,3 @@ select Trainers.Trainername,count(Lessons.LessonID) as lesson_no
 from Trainers join Lessons on Trainers.TrainerID=Lessons.TrainerID
 group by Trainers.Trainername
 order by lesson_no
-select Trainers.Trainername ,max(subquery.lessonno) as max_lesson_no
-from ( select Lessons.TrainerID,count(Lessons.TrainerID) as lessonno
-from Lessons
-group by Lessons.TrainerID)as subquery
-join Trainers on subquery.TrainerID=Trainers.TrainerID
-group by Trainers.Trainername
-order by max_lesson_no
