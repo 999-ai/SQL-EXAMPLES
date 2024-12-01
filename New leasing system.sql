@@ -15,7 +15,7 @@ from (select Leasings.LeasingID,DATEDIFF(MONTH, Leasings.[Leasing startdate], Le
     FROM Leasings
     JOIN Vehicles ON Leasings.VehicleID = Vehicles.VehicleID
 ) AS subquery
-JOIN Vehicles ON subquery.LeasingID = Vehicles.VehicleID
+JOIN Vehicles ON subquery.VehicleID = Vehicles.VehicleID
 GROUP BY Vehicles.Vehicletrademark;
 select Vehicles.Vehicletrademark,max(price) as max_priceperday from Vehicles
 group by  Vehicles.Vehicletrademark
